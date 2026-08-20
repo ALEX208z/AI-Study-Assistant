@@ -102,8 +102,8 @@ def retrieve(query: str, top_k: int = 5) -> list:
 
 # ── Claude API ────────────────────────────────────────────────────────────────
 CLAUDE_API_URL = "https://api.anthropic.com/v1/messages"
-# CLAUDE_MODEL   = "claude-opus-4-5"   # best model for answers
-CLAUDE_MODEL = "claude-haiku-4-5"   # cheaper model
+CLAUDE_MODEL   = "claude-opus-4-5"   # best model for answers
+# CLAUDE_MODEL = "claude-haiku-4-5"   # cheaper model
 
 def call_claude(context_chunks: list, question: str) -> str:
     api_key = os.getenv("ANTHROPIC_API_KEY", "").strip()
