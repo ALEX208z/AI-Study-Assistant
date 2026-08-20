@@ -277,6 +277,48 @@
     border-top: 1px solid var(--border);
     background: var(--bg);
   }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    header { padding: 10px 14px; flex-wrap: wrap; gap: 8px; }
+    .app-title { font-size: 15px; }
+    .app-subtitle { font-size: 11px; }
+    .stats-bar { gap: 12px; margin-left: 0; width: 100%; justify-content: flex-start; }
+
+    .main { flex-direction: column; overflow-y: auto; }
+
+    .sidebar {
+      width: 100%;
+      min-width: 0;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      max-height: 46vh;
+      padding: 12px;
+    }
+
+    .chat-area { flex: 1; min-height: 54vh; }
+
+    .messages { padding: 14px; gap: 14px; }
+    .message { max-width: 100%; }
+    .bubble { max-width: calc(100vw - 90px); font-size: 13.5px; }
+
+    .welcome { padding: 0 8px; }
+    .welcome h2 { font-size: 18px; }
+    .example-questions { gap: 6px; }
+    .example-q { font-size: 12px; padding: 6px 10px; }
+
+    .input-bar { padding: 10px 12px; gap: 8px; }
+    #send-btn { width: 38px; height: 38px; font-size: 16px; }
+
+    .api-notice { font-size: 10px; padding: 5px; line-height: 1.4; }
+  }
+
+  @media (max-width: 480px) {
+    .stat { align-items: flex-start; }
+    .stats-bar { gap: 10px; font-size: 11px; }
+    .doc-name { max-width: 55vw; }
+    .sidebar { max-height: 50vh; }
+  }
 </style>
 </head>
 <body>
@@ -368,7 +410,7 @@
 // Auto-uses localhost while developing; switch to your deployed backend URL for production.
 const API = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
   ? 'http://localhost:8000/api'
-  : 'https://ai-study-assistant-backend-lf14.onrender.com/api'; 
+  : 'https://YOUR-RENDER-APP.onrender.com/api'; // <-- replace after deploying the backend on Render
 
 // ── Stats & docs ─────────────────────────────────────────────────────────────
 async function refreshStats() {
